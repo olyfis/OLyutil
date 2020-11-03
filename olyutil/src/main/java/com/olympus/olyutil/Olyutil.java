@@ -2,6 +2,7 @@ package com.olympus.olyutil;
 
 import java.io.*;
 import java.lang.reflect.*;
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.nio.file.*;
 import java.nio.file.Files;
@@ -45,6 +46,25 @@ public class Olyutil {
 	static String s = null;
 	static private PreparedStatement statement;
 	/****************************************************************************************************************************************************/
+	// Call: decimalfmt(1000.00, "$###,##0.00")
+		public  static String  decimalfmt(BigDecimal value, String fmt) {
+			String rtn = "";
+			DecimalFormat df = new DecimalFormat(fmt);
+			rtn = df.format(value);	
+			return(rtn);		
+		}
+	
+	/****************************************************************************************************************************************************/
+
+	// Call: decimalfmt(1000.00, "$###,##0.00")
+	public  static String  decimalfmt(Double value, String fmt) {
+		String rtn = "";
+		DecimalFormat df = new DecimalFormat(fmt);
+		rtn = df.format(value);	
+		return(rtn);		
+	}
+	/****************************************************************************************************************************************************/
+
 	static public JsonArray buildJSON(ArrayList<String> strArr, ArrayList<String> hdrArr) {
 		JsonArray jsonArr = new JsonArray();
 		//Olyutil.printStrArray(strArr);
